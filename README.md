@@ -1,0 +1,2 @@
+# 36-SOPKATHON-SERVER-WEB3
+36기 AT SOPT 솝커톤 웹3팀 서버 레포입니다
