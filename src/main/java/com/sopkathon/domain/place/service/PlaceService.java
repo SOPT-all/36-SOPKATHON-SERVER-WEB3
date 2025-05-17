@@ -2,6 +2,7 @@ package com.sopkathon.domain.place.service;
 
 import java.util.List;
 
+import com.sopkathon.domain.place.dto.GetPlaceDetailRes;
 import org.springframework.stereotype.Service;
 
 import com.sopkathon.domain.place.dto.GetPlaceListResponse;
@@ -37,4 +38,8 @@ public class PlaceService {
 		}
 		return placeRepository.findAllBySubwayEntityAndCategory(subwayEntity, Category.fromKorName(category));
 	}
+
+//    public GetPlaceDetailRes getPlaceDetailById(Long placeId) {
+//
+//    }
 }
