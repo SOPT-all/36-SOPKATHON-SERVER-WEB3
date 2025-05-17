@@ -5,7 +5,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -17,13 +17,13 @@ public class ReviewEntity {
     private Long id;
 
     @Column(name = "createdAt", nullable = false)
-    private LocalDateTime createdAt;
+    private LocalDate createdAt;
 
     @Column(name = "author", nullable = false)
     private String author;
 
-    @Column(name = "comment", nullable = false)
-    private String comment;
+    @Column(name = "content", nullable = false)
+    private String content;
 
     @Column(name = "profile_image_url", nullable = false)
     private String profileImageUrl;
