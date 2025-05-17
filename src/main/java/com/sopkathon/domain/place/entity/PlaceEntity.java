@@ -4,6 +4,7 @@ import com.sopkathon.domain.review.entity.ReviewEntity;
 import com.sopkathon.domain.subway.entity.SubwayEntity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -43,7 +44,7 @@ public class PlaceEntity {
 	@Column(name = "photo_url", nullable = false)
 	private String photoUrl;
 
-	@Enumerated(EnumType.STRING)
+	@Convert(converter = CategoryConverter.class)
 	@Column(name = "category", nullable = false)
 	private Category category;
 
@@ -51,19 +52,15 @@ public class PlaceEntity {
 	@JoinColumn(name = "subway_id", nullable = false)
 	private SubwayEntity subwayEntity;
 
-	@ManyToOne(targetEntity = ReviewEntity.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "review_id", nullable = false)
-	private ReviewEntity reviewEntity;
 
 	@Builder
 	public PlaceEntity(int duration, String description, String mapLink, String photoUrl, Category category,
-		SubwayEntity subwayEntity, ReviewEntity reviewEntity) {
+		SubwayEntity subwayEntity) {
 		this.duration = duration;
 		this.description = description;
 		this.mapLink = mapLink;
 		this.photoUrl = photoUrl;
 		this.category = category;
 		this.subwayEntity = subwayEntity;
-		this.reviewEntity = reviewEntity;
 	}
 }
