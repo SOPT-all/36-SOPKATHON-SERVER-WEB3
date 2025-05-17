@@ -11,6 +11,8 @@ import com.sopkathon.domain.place.entity.PlaceEntity;
 import com.sopkathon.domain.place.repository.PlaceRepository;
 import com.sopkathon.domain.subway.entity.SubwayEntity;
 import com.sopkathon.domain.subway.service.SubwayService;
+import com.sopkathon.global.error.code.ErrorCode;
+import com.sopkathon.global.error.exception.BusinessException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -36,5 +38,12 @@ public class PlaceService {
 			return placeRepository.findAllBySubwayEntity(subwayEntity);
 		}
 		return placeRepository.findAllBySubwayEntityAndCategory(subwayEntity, Category.fromKorName(category));
+	}
+
+	public void addPlace(Long placeId) {
+		PlaceEntity placeEntity = placeRepository.findById(placeId)
+			.orElseThrow(() -> new BusinessException(ErrorCode.DATA_NOT_FOUND));
+
+
 	}
 }
