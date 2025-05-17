@@ -37,6 +37,7 @@ public class PlaceController {
 		return ResponseEntity.ok(SuccessResponse.of(SuccessCode.SUCCESS_CREATE));
 	}
 
+
 	@GetMapping("/{place-id}")
 	public ResponseEntity<SuccessResponse<?>> getPlaceDetailById(@PathVariable("place-id") Long placeId) {
 		GetPlaceDetailRes getPlaceDetailRes = placeService.getPlaceDetailById(placeId);
