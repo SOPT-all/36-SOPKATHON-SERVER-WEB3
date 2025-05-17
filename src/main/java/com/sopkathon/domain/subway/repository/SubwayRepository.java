@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.sopkathon.domain.subway.entity.SubwayEntity;
 
+import java.util.List;
+
 @Repository
 public interface SubwayRepository extends JpaRepository<SubwayEntity, Long> {
+    List<SubwayEntity> findBySubwayNameContaining(String keyword);
 }

@@ -18,11 +18,21 @@ public class SubwayService {
 
     @Transactional(readOnly = true)
     public SubwayListRes getSubwayList() {
-        List<String> list = subwayRepository.findAll()
+        List<String> subwayList = subwayRepository.findAll()
                 .stream()
                 .map(SubwayEntity::getSubwayName)
                 .collect(Collectors.toList());
 
-        return SubwayListRes.from(list);
+        return SubwayListRes.from(subwayList);
+    }
+
+    @Transactional(readOnly = true)
+    public SubwayListRes getSubwayListByKeyword(String keyword) {
+        List<String> subwayList = subwayRepository.findBySubwayNameContaining(keyword)
+                .stream()
+                .map(SubwayEntity::getSubwayName)
+                .collect(Collectors.toList());
+
+        return SubwayListRes.from(subwayList);
     }
 }
