@@ -11,6 +11,8 @@ public record GetPlaceResponse(
 	String name,
 	String description,
 	String mapLink,
+	int price,
+	String farmer,
 	String photoUrl
 ) {
 
@@ -21,6 +23,8 @@ public record GetPlaceResponse(
 			.description(placeEntity.getDescription())
 			.mapLink(placeEntity.getMapLink())
 			.photoUrl(placeEntity.getPhotoUrl())
+			.price(placeEntity.getPrice())
+			.farmer(placeEntity.getFarmer())
 			.build();
 	}
 }
