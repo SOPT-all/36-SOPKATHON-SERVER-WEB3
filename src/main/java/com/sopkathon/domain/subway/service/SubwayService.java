@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -34,5 +35,9 @@ public class SubwayService {
                 .collect(Collectors.toList());
 
         return SubwayListRes.from(subwayList);
+    }
+
+    public SubwayEntity getSubwayEntity(String subwayName) {
+        return subwayRepository.findBySubwayName(subwayName);
     }
 }
