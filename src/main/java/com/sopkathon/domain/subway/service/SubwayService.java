@@ -40,4 +40,8 @@ public class SubwayService {
     public SubwayEntity getSubwayEntity(String subwayName) {
         return subwayRepository.findBySubwayName(subwayName);
     }
+
+    public SubwayEntity getSubwayEntity(String subwayName) {
+        return subwayRepository.findBySubwayName(subwayName);
+    }
 }
