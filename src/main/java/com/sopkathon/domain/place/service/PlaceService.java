@@ -35,6 +35,6 @@ public class PlaceService {
 		if ("ALL".equals(category)) {
 			return placeRepository.findAllBySubwayEntity(subwayEntity);
 		}
-		return placeRepository.findAllBySubwayEntityAndCategory(subwayEntity, Category.fromName(category));
+		return placeRepository.findAllBySubwayEntityAndCategory(subwayEntity, Category.fromKorName(category));
 	}
 }

@@ -1,5 +1,7 @@
 package com.sopkathon.domain.place.entity;
 
+import java.util.Arrays;
+
 import com.sopkathon.global.error.code.ErrorCode;
 import com.sopkathon.global.error.exception.BusinessException;
 
@@ -15,16 +17,21 @@ public enum Category {
 	PLANTS_AND_FLOWERS("식물·꽃"),
 	OTHER("기타");
 
-	private String name;
+	private String korName;
 
-	Category(String name) {}
+	Category(String korName) {
+		this.korName = korName;
+	}
 
-	public static Category fromName(String name) {
-		for (Category category : values()) {
-			if(category.name.equals(name)) {
-				return category;
-			}
-		}
-		throw new BusinessException(ErrorCode.DATA_NOT_FOUND);
+
+	public String getKorName() {
+		return korName;
+	}
+
+	public static Category fromKorName(String korName) {
+		return Arrays.stream(Category.values())
+			.filter(c -> c.korName.equals(korName))
+			.findFirst()
+			.orElseThrow(() -> new IllegalArgumentException("Unknown category: " + korName));
 	}
 }

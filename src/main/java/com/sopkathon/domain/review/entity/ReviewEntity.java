@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+import com.sopkathon.domain.place.entity.PlaceEntity;
+
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -17,7 +19,7 @@ public class ReviewEntity {
     private Long id;
 
     @Column(name = "createdAt", nullable = false)
-    private LocalDate createdAt;
+    private String createdAt;
 
     @Column(name = "author", nullable = false)
     private String author;
@@ -27,4 +29,8 @@ public class ReviewEntity {
 
     @Column(name = "profile_image_url", nullable = false)
     private String profileImageUrl;
+
+    @ManyToOne(targetEntity = PlaceEntity.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "place_id", nullable = false)
+    private PlaceEntity placeEntity;
 }

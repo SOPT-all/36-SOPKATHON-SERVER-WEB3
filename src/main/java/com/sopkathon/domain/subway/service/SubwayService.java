@@ -26,4 +26,8 @@ public class SubwayService {
 
         return SubwayListRes.from(list);
     }
+
+    public SubwayEntity getSubwayEntity(String subwayName) {
+        return subwayRepository.findBySubwayName(subwayName);
+    }
 }
