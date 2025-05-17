@@ -14,19 +14,12 @@ public class SimilarPlaceEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "duration")
+    @Column(name = "duration", nullable = false)
     private String duration;
 
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "photoUrl")
+    @Column(name = "photoUrl", nullable = false)
     private String photoUrl;
-
-    public SimilarPlaceEntity(String duration, String description, String photoUrl) {
-        this.duration = duration;
-        this.description = description;
-        this.photoUrl = photoUrl;
-    }
-
 }
