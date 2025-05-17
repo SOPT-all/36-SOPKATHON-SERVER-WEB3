@@ -12,7 +12,7 @@ jobs:
     - name: 체크아웃
       uses: actions/checkout@v3
 
-    - name: Set up JDK 17
+    - name: JDK 17 설치
       uses: actions/setup-java@v3
       with:
         java-version: '17'
@@ -20,11 +20,11 @@ jobs:
 
     - name: application.yml 생성
       run: | 
-          cd src/main/resources
-          echo "${{ secrets.APPLICATION }}" > ./application.yml
+        mkdir -p src/main/resources
+        echo "${{ secrets.APPLICATION }}" > src/main/resources/application.yml
 
-    - name: 빌드
+    - name: Gradle 빌드
       run: |
-          chmod +x gradlew
-          ./gradlew build -x test
+        chmod +x ./gradlew
+        ./gradlew build -x test
       shell: bash
