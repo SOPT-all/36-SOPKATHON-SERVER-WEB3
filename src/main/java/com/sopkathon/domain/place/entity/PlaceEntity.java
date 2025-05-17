@@ -52,15 +52,35 @@ public class PlaceEntity {
 	@JoinColumn(name = "subway_id", nullable = false)
 	private SubwayEntity subwayEntity;
 
+	@Column(name = "price", nullable = true)
+	private int price;
+
+	@Column(name = "farmer", nullable = false)
+	private String farmer;
+
+	@Column(name = "date", nullable = false)
+	private String date;
+
+	@Column(name = "location", nullable = false)
+	private String location;
+
+	@Column(name = "started_at", nullable = false)
+	private String startedAt;
+
+	@Column(name = "end_at", nullable = false)
+	private String endAt;
 
 	@Builder
-	public PlaceEntity(int duration, String description, String mapLink, String photoUrl, Category category,
-		SubwayEntity subwayEntity) {
+	public PlaceEntity(String name, int duration, String description, String mapLink, String photoUrl,
+		Category category,
+		SubwayEntity subwayEntity, int price) {
+		this.name = name;
 		this.duration = duration;
 		this.description = description;
 		this.mapLink = mapLink;
 		this.photoUrl = photoUrl;
 		this.category = category;
 		this.subwayEntity = subwayEntity;
+		this.price = price;
 	}
 }
