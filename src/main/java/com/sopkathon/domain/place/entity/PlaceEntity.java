@@ -1,5 +1,7 @@
 package com.sopkathon.domain.place.entity;
 
+import com.sopkathon.domain.apply.entity.ApplyEntity;
+import com.sopkathon.domain.apply.entity.ApplyStatus;
 import com.sopkathon.domain.review.entity.ReviewEntity;
 import com.sopkathon.domain.subway.entity.SubwayEntity;
 
