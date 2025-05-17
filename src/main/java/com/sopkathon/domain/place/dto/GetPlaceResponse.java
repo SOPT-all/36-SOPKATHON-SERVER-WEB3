@@ -10,7 +10,6 @@ public record GetPlaceResponse(
 	Long placeId,
 	String name,
 	String description,
-	String mapLink,
 	int price,
 	String farmer,
 	String photoUrl
@@ -21,7 +20,6 @@ public record GetPlaceResponse(
 			.placeId(placeEntity.getId())
 			.name(placeEntity.getName())
 			.description(placeEntity.getDescription())
-			.mapLink(placeEntity.getMapLink())
 			.photoUrl(placeEntity.getPhotoUrl())
 			.price(placeEntity.getPrice())
 			.farmer(placeEntity.getFarmer())

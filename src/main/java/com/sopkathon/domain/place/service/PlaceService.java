@@ -9,11 +9,15 @@ import com.sopkathon.global.error.code.ErrorCode;
 import com.sopkathon.global.error.exception.BusinessException;
 import org.springframework.stereotype.Service;
 
+import com.sopkathon.domain.place.dto.GetPlaceListResponse;
+import com.sopkathon.domain.place.dto.GetPlaceResponse;
 import com.sopkathon.domain.place.entity.Category;
 import com.sopkathon.domain.place.entity.PlaceEntity;
 import com.sopkathon.domain.place.repository.PlaceRepository;
 import com.sopkathon.domain.subway.entity.SubwayEntity;
 import com.sopkathon.domain.subway.service.SubwayService;
+import com.sopkathon.global.error.code.ErrorCode;
+import com.sopkathon.global.error.exception.BusinessException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -66,5 +70,12 @@ public class PlaceService {
 				place.getPrice(),
 				reviewDtos
 		);
+	}
+
+	public void addPlace(Long placeId) {
+		PlaceEntity placeEntity = placeRepository.findById(placeId)
+			.orElseThrow(() -> new BusinessException(ErrorCode.DATA_NOT_FOUND));
+
+
 	}
 }
