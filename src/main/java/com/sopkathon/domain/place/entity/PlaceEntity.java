@@ -1,7 +1,6 @@
 package com.sopkathon.domain.place.entity;
 
 import com.sopkathon.domain.review.entity.ReviewEntity;
-import com.sopkathon.domain.similarPlace.entity.SimilarPlaceEntity;
 import com.sopkathon.domain.subway.entity.SubwayEntity;
 
 import jakarta.persistence.Column;
@@ -29,6 +28,9 @@ public class PlaceEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(name = "name", nullable = false)
+	private String name;
+
 	@Column(name = "duration", nullable = false)
 	private int duration;
 
@@ -53,14 +55,9 @@ public class PlaceEntity {
 	@JoinColumn(name = "review_id", nullable = false)
 	private ReviewEntity reviewEntity;
 
-	@ManyToOne(targetEntity = SimilarPlaceEntity.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "similar_place_id", nullable = false)
-	private SimilarPlaceEntity similarPlaceEntity;
-
 	@Builder
-
 	public PlaceEntity(int duration, String description, String mapLink, String photoUrl, Category category,
-		SubwayEntity subwayEntity, ReviewEntity reviewEntity, SimilarPlaceEntity similarPlaceEntity) {
+		SubwayEntity subwayEntity, ReviewEntity reviewEntity) {
 		this.duration = duration;
 		this.description = description;
 		this.mapLink = mapLink;
@@ -68,6 +65,5 @@ public class PlaceEntity {
 		this.category = category;
 		this.subwayEntity = subwayEntity;
 		this.reviewEntity = reviewEntity;
-		this.similarPlaceEntity = similarPlaceEntity;
 	}
 }

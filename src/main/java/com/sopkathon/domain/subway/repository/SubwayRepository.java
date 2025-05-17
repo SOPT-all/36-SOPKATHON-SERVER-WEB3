@@ -7,4 +7,5 @@ import com.sopkathon.domain.subway.entity.SubwayEntity;
 
 @Repository
 public interface SubwayRepository extends JpaRepository<SubwayEntity, Long> {
+	SubwayEntity findBySubwayName(String subwayName);
 }

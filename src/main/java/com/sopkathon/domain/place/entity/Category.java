@@ -9,7 +9,11 @@ import lombok.NoArgsConstructor;
 
 @Getter
 public enum Category {
-	NATURAL("자연");
+	ORCHARD("과수원"),
+	CROPS("밭작물"),
+	LIVESTOCK("축산"),
+	PLANTS_AND_FLOWERS("식물·꽃"),
+	OTHER("기타");
 
 	private String name;
 
