@@ -19,7 +19,8 @@ public enum SuccessCode {
 	SUCCESS_WITHDRAW(HttpStatus.OK, "회원탈퇴에 성공했습니다"),
 	SUCCESS_REDIRECT(HttpStatus.PERMANENT_REDIRECT, "Redirect에 성공하였습니다"),
 	SUCCESS_LOGOUT(HttpStatus.OK, "로그아웃에 성공했습니다"),
-	SUCCESS_SUBWAY_LIST(HttpStatus.OK, "지하철역 리스트가 성공적으로 조회되었습니다.");
+	SUCCESS_SUBWAY_LIST(HttpStatus.OK, "지하철역 리스트가 성공적으로 조회되었습니다."),
+	SUCCESS_GET_PLACE_DETAIL(HttpStatus.OK, "장소 상세 정보를 성공적으로 불러왔습니다.");
 
 	private final HttpStatus httpStatus;
 	private final String message;
